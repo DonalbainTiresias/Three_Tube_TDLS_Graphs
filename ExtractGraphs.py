@@ -20,7 +20,7 @@ plt.close('all')
 #%%  Set Variables For Each Run
 
 book='2' ## Where is the description of this experiment in James Bremner'
-page='7' ## Lab Book?
+page='8a' ## Lab Book?
 
 pattern = '*consolidated_data.csv' #This sets the file ending is for the data to be plotted
 
@@ -247,6 +247,11 @@ sha = repo.head.object.hexsha
 
 readme='Date of creation: ' +str(datetime.datetime.today().strftime('%Y-%m-%d')) +'\nGit Hash of Software Used: ' +str(sha) + '\nRepositoryAddress: https://github.com/DonalbainTiresias/Three_Tube_TDLS_Graphs.git' + '\nNumber of data points ignored at each end of run: ' +str(plotcutoff) + '\nNumber of Standard Deviations from mean which denotes an outlier: ' + str(alloweddeviation) + '\nNumber of Runs: '+ str(runnumber) + '\nIgnored Runs Tube 1: ' +str(columntodelete1) +'\nIgnored Runs Tube 2: ' +str(columntodelete2) +'\nIgnored Runs Tube 3: ' +str(columntodelete3)
 print readme
+textfilename=fixed_filename.replace('ThreeTubesSlopesAllData.svg','readme.txt')
+
+with open(textfilename, "w") as text_file:
+    text_file.write(readme)
+
 textfilename=fixed_filename.replace('ThreeTubesSlopesAllData.svg','readme.txt')
 
 with open(textfilename, "w") as text_file:
